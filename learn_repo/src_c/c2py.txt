@@ -1,0 +1,47 @@
+Usage: c2py [options] [INPUT_FILE ARG...]
+  Or:  c2py [options] -o OUTPUT_FILE [INPUT_FILE...]
+Transpile cpy to Python.
+
+When no INPUT_FILE, or when INPUT_FILE is -, read standard input.
+When no OUTPUT_FILE (see --output), execute the code, passing ARGs in sys.argv.
+When OUTPUT_FILE is -, write to standard output
+
+  -#[PYTHON]                 run in shebang mode even if other options suggest
+                               not too. PYTHON is the name of the executable
+                               to be piped to (default python3)
+  -c, --command[=COMMAND]    interpret COMMAND instead of a file
+  -e, --editing              enable line editing with GNU Readline
+  -n, --noediting            do not use GNU Readline for line editing even if
+                               running interactively
+  -a, --ask                  ask before overwriting
+  -f, --force                overwrite without asking
+  -p, --indent-prompt=SIZE   the size of an indent when indenting interactively
+                               (0 to disable)
+  -I, --indent-size=SIZE     the size of an indent in output
+  -i, --interactive          run interactively
+      --nointeractive        run non-interactively
+  -m, --minify[=<0|no>]      minify output; default when in shebang mode. If 0
+                               (the number zero) or "no" is specified, turn off
+                               minification.
+  -O, --obfuscate[=<0|no>]   alias for --minify
+  -o, --output=OUTPUT_FILE   write to OUTPUT_FILE instead of standard output
+  -!, --shebang[=PYTHON]     print a shebang line to the output file using
+                               PYTHON as the interpreter or python3 as the
+                               default. If PYTHON is not a path (does not
+                               contain a '/') and has no arguments (no spaces),
+                               the shebang line will look like this:
+                               "#!/usr/bin/env PYTHON". Otherwise, if PYTHON is
+                               not a path (does contain a '/') but has
+                               arguments, the shebang line will look like this:
+                               "#!/usr/bin/env -S PYTHON". Otherwise, if PYTHON
+                               is a path, the shebang line will look like this:
+                               "#!PYTHON"
+  -x, --python=PYTHON        act as if PYTHON were specified for -# or -!
+  -h, --help                 display this help and exit
+  -v, --version[=ARG]        print version information (more verbose with
+                               ARG="full" and even more verbose with
+                               ARG="extra full") and exit
+
+C2py webpage: https://nongnu.org/c2py
+Bug report address is <c2py-bug@nongnu.org>, but the prefered way to report bugs
+is at https://savannah.nongnu.org/bugs/?func=additem&group=c2py

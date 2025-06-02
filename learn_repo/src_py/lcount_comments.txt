@@ -1,0 +1,28 @@
+Notes
+
+Dependency and Import:
+
+Imported the sys module as an equivalent to the C standard I/O library, to use sys.stdin.read for input.
+Function Definition:
+
+Translated the C main() function into a Python function named main().
+The original main() function comment (/* ������� ����� */) has been preserved in the Python code as a comment.
+Variable Declarations:
+
+The C declaration "register n, c;" is translated by simply initializing Python variables (n and c) when used.
+Python does not have a direct equivalent of the "register" keyword, so standard variable assignment is used.
+Input Reading:
+
+The C code's "while ((c = getchar()) != EOF)" is implemented with a while True loop that reads one character at a time using sys.stdin.read(1).
+In Python, EOF is detected when sys.stdin.read(1) returns an empty string ('').
+Newline Count:
+
+Each newline character ('\n') is counted by incrementing the variable n, exactly mimicking the behavior of the original C code.
+Output:
+
+The C function printf("%d\n", n); is translated to Python's print function, ensuring the integer n is printed followed by a newline.
+Formatted string (f-string) is used to preserve exact formatting.
+Program Execution:
+
+The main function is protected by "if name == 'main':" to allow the module to be run as a standalone script, exactly mirroring the behavior in C.
+All lines of the original C code have been translated into Python with exact functionality preserved.

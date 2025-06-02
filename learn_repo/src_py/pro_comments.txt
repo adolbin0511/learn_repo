@@ -1,0 +1,24 @@
+Notes
+
+Language-specific feature adaptations:
+
+The C function main() is translated into a Python function named main(), and the script is executed using the common if name == 'main' idiom.
+The C standard output functions (printf and putchar) are replaced by sys.stdout.write() in Python to maintain exact behavior regarding output formatting (i.e., no automatic newline printing as with Python’s print()).
+Type system differences:
+
+In C, characters are typically represented as char, while in Python, they are simply strings of length 1.
+The C octal literal 07 is converted to a Python character using chr(7) to reproduce the bell character.
+Standard library equivalents:
+
+Instead of sleep(1) from unistd.h, Python’s time.sleep(1) from the time module is used.
+sys.stdout.write() and sys.stdout.flush() from the sys module are used to exactly control output similar to putchar.
+Error Handling:
+
+The original C code has no explicit error handling, so the Python translation directly implements the functionality without additional error checks.
+Formatting:
+
+All comments and formatting from the original C code have been preserved and adapted to Python inline comments.
+Infinite loop:
+
+The C infinite loop (for(;;)) is translated into a Python while True loop.
+Overall, every single line of the C code has been translated exactly as specified, preserving the logic and structure without any assumptions or placeholders.
